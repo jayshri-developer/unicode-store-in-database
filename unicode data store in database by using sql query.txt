@@ -1,0 +1,16 @@
+how to unicode data store in database by using query?
+1 step: 
+the column you are storing Marathi in has the collation type 'utf8_general_ci'
+the SQL command SHOW TABLE STATUS should display your table's properties. 
+If the collation is not utf8_general_ci then change it by the following SQL Command:
+
+ALTER TABLE dbo.MarathiTable 
+MODIFY marathi varchar(100)COLLATE utf8_general_ci;
+
+2 step:
+insert the data into table it is as followes:
+"INSERT INTO `comments`(id,comment) values (N'??????? ',N'???? ')";
+ here,
+comments is table name.
+id and comment both are the column name.
+ ??????? and ????  this are the value put into the table.
